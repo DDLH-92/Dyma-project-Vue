@@ -1,15 +1,14 @@
 <template>
-<input type="text" v-model="letter">
-<h1 v-if="letter ==='A'">A</h1>
-<h1 v-else-if="letter === 'B'">B</h1>
-<h1 v-else-if="letter === 'C'">C</h1>
-<h1 v-else>Autre</h1>
+<button @click="toggle = !toggle">Toggle</button>
+<h1 v-show="toggle">Bonjour le monde !</h1>
+<h2 v-pre>{{ variable1 }}</h2>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const letter = ref('');
+const toggle = ref(true);
+const variable1 = ref('une valeur');
 
 </script>
 
