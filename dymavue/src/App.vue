@@ -1,20 +1,20 @@
 <template>
-  <h2>Count : {{ count }}</h2>
-  <button @click="incCount">add</button>
+<h2>Prix total HT : {{ totalPriceHT }}</h2>
+<h2>Prix total TTC : {{ totalPriceTTC }}</h2>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import type { Ref } from "vue";
+import { computed, reactive } from "vue";
 
+const product = reactive({
+  name: 'books',
+  quantity: 3,
+  priceHT: 10
+})
 
-const count = ref(0);
+const totalPriceHT = computed(() => product.priceHT * product.quantity)
 
-function getRef(num: Ref<number>) {
-  num.value++
-}
-
-getRef(count)
+const totalPriceTTC = computed (() => product.priceHT * product.quantity * 1.2)
 
 </script>
 
