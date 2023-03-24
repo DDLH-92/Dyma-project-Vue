@@ -1,25 +1,21 @@
 <template>
+  <h1 @click="userClick" @mouseenter="userEnter">Hello World !</h1>
+  <input @input="userInput($event, 'word')" type="text">
 </template>
 
 <script setup lang="ts">
 
-interface User {
-  name: string,
-  age: number | string
+let count = 0;
+
+function userEnter(event: MouseEvent) {
+  console.log(event)
 }
 
-let user: User | null;
-
-function createUser(name: string): User {
-  return {
-    name: 'David',
-    age: 18
-  }
+function userInput(event: Event, str: string) {
+  const target = event.target as HTMLInputElement;
+  target.value = 'Bonjour';
+  console.log(str);
 }
-
-user = createUser('David')
-
-user.age
 
 </script>
 
