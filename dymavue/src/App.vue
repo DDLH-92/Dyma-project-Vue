@@ -2,16 +2,8 @@
   <h1>Bonjour {{ name }}</h1>
 </template>
 
-<script lang="ts">
-
-export default {
-data() {
-  return {
-    name: 'Jean'
-  }
-}
-}
-
+<script setup lang="ts">
+const name = 'David'
 </script>
 
 <style></style>
