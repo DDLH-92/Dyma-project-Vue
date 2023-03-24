@@ -1,6 +1,5 @@
 <template>
-  <h1 :style ="[fontSize, color]"
->Bonjour le monde ! </h1>
+  <h1><span>>Bonjour</span> le monde !</h1>
 </template>
 
 <script setup lang="ts">
@@ -12,6 +11,13 @@ const color = ref('color: red;')
 </script>
 
 
-<style scoped>
+<style scoped lang = "scss">
+
+h1 {
+  color: red;
+  span {
+    color: blue;
+  }
+}
 
 </style>
