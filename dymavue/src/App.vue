@@ -1,16 +1,13 @@
 <template>
-  <Product v-bind="product"/>
+  <Blog @bigger="incSize" @smaller="fontSize-- " :fontSize="fontSize" />
 </template>
 
 <script setup lang="ts">
-import Product from './Product.vue';
-import { reactive, ref } from 'vue';
-import type { ProductInterface } from './interfaces/product.interface.ts'
+import { ref } from 'vue'
+import Blog from './Blog.vue'
 
-const product = reactive<ProductInterface>({
-  available: true,
-  prix: 1500,
-  name: 'Moto'
-})
-
+const fontSize = ref(16)
+function incSize(inc: number) {
+  fontSize.value += inc;
+}
 </script>
