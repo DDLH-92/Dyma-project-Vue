@@ -1,13 +1,14 @@
 <template>
-  <Blog @bigger="incSize" @smaller="fontSize-- " :fontSize="fontSize" />
+  <button @click="toggle = !toggle">Toggle</button>
+  <div v-if="toggle"><Blog />
+  </div>
+
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import Blog from './Blog.vue'
+import { ref } from 'vue'
 
-const fontSize = ref(16)
-function incSize(inc: number) {
-  fontSize.value += inc;
-}
+const toggle = ref(true)
+
 </script>

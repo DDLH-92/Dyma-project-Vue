@@ -1,20 +1,43 @@
 <template>
-  <h2>Un titre d'article</h2>
-  <button @click="$emit('bigger', 5)">+</button>
-  <button @click="$emit('smaller', 5)">-</button>
-  <p :style="{ fontSize: props.fontSize + 'px' }">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex hic nostrum repellat? Sapiente quia iure ea asperiores non culpa iste impedit? Deserunt illo iure laudantium eos quo nam pariatur voluptate.</p>
+  <h1>Blog</h1>
+  <button @click="count++">Submit</button>
+  <p> {{ count }}</p>
 </template>
+
 <script lang="ts" setup>
-import { defineProps } from 'vue';
+import { onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, ref } from 'vue';
 
-const props = defineProps<{
-  fontSize: number
-}>()
 
-const emit = defineEmits<{
-  (e: 'bigger', inc: number): void
-  (e: 'smaller'): void
-}>()
+const count = ref(0);
+
+const intervalId = setInterval(() => {
+  console.log('tick');
+}, 1000)
+
+onBeforeMount(()=> {
+  console.log('on before mounted');
+})
+
+onMounted(()=> {
+  console.log('mounted');
+})
+
+onBeforeUpdate(()=> {
+  console.log('on before update');
+})
+
+onUpdated(()=> {
+  console.log('on updated');
+})
+
+onBeforeUnmount(()=> {
+  console.log('onBeforeUnmount');
+})
+
+onUnmounted(()=> {
+  clear interval(intervalId)
+  console.log('onUnmounted');
+})
 
 </script>
 
