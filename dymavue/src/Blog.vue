@@ -1,43 +1,17 @@
 <template>
-  <h1>Blog</h1>
-  <button @click="count++">Submit</button>
-  <p> {{ count }}</p>
+  <h1>Blog title</h1>
+  <p :class="$attrs.class">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione iure quam tempora velit
+    repellat repellendus. Blanditiis cumque perferendis alias deserunt modi ad dolorum rerum nihil!
+    Quibusdam blanditiis assumenda neque nesciunt.
+  </p>
 </template>
 
 <script lang="ts" setup>
-import { onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, ref } from 'vue';
 
-
-const count = ref(0);
-
-const intervalId = setInterval(() => {
-  console.log('tick');
-}, 1000)
-
-onBeforeMount(()=> {
-  console.log('on before mounted');
-})
-
-onMounted(()=> {
-  console.log('mounted');
-})
-
-onBeforeUpdate(()=> {
-  console.log('on before update');
-})
-
-onUpdated(()=> {
-  console.log('on updated');
-})
-
-onBeforeUnmount(()=> {
-  console.log('onBeforeUnmount');
-})
-
-onUnmounted(()=> {
-  clear interval(intervalId)
-  console.log('onUnmounted');
-})
+defineProps<{
+  title: string
+}>
 
 </script>
 
