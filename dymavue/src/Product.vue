@@ -1,19 +1,22 @@
 <template>
-
-  <h3>Voiture</h3>
-  <ul>
-    <li>Prix: 1500</li>
-  </ul>
-  <button @click="count++">Ajouter une voiture au panier</button>
-  <p>Vous avez ajouté {{ count }} voitures </p>
+  <h3>{{ title }}</h3>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed } from 'vue'
 
-const count = ref(0)
+const props = defineProps({
+  name: {
+    type: Object,
+    default: 'Pomme'
+  },
+  prix: {
+    type: Number,
+    required: true
+  }
+})
 
+const title = computed(() => props.name.toUpperCase())
 </script>
 
-<style lang ="scss">
-</style>
+<style lang="scss"></style>
