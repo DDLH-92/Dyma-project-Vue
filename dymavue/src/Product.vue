@@ -4,16 +4,13 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
+import type { ProductInterface } from './interfaces/product.interface.ts'
+
 
 const props = defineProps({
-  name: {
-    type: Object,
-    default: 'Pomme'
-  },
-  prix: {
-    type: Number,
-    required: true
-  }
+ available: boolean,
+ prix: number,
+ name: string
 })
 
 const title = computed(() => props.name.toUpperCase())
